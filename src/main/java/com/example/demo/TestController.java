@@ -1,16 +1,20 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TestController {
+	
+	@Autowired
+	UserService userService;
 
 	@RequestMapping(value="/api/test",method = RequestMethod.GET)
     public String queryEnum1() throws Exception {
     	System.out.println(123);
-    	return "123";
+    	return String.valueOf(userService.addUser("xinjun"));
     }
 	
 	@RequestMapping(value="/api/test1",method = RequestMethod.GET)
