@@ -8,13 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
 	@RequestMapping(value="/api/test",method = RequestMethod.GET)
-    public void queryEnum1() throws Exception {
+    public String queryEnum1() throws Exception {
     	System.out.println(123);
+    	return "123";
     }
 	
 	@RequestMapping(value="/api/test1",method = RequestMethod.GET)
-    public void queryEnum2() throws Exception {
+    public String queryEnum2() throws Exception {
     	System.out.println(123);
+    	return "123";
     }
 	
 	@RequestMapping(value="/api/test2",method = RequestMethod.GET)
