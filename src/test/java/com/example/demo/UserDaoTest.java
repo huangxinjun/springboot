@@ -1,28 +1,22 @@
 package com.example.demo;
 
-import org.junit.Before;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-//@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class UserDaoTest {
 
     //使用MockBean是因为此时容器中没有UserMapper这个对象
-//    @MockBean
-//    public UserDao userDao;
-//
-//    //使用BDDMockito对行为进行预测，
-//    @Before
-//    public void init(){
-//        BDDMockito.given(userDao.createUser("admin")).willReturn(1);
-//        BDDMockito.given(userDao.createUser("")).willReturn(0);
-//        BDDMockito.given(userDao.createUser(null)).willThrow(NullPointerException.class);
-//    }
-//
-//    @Test(expected=NullPointerException.class)
-//    public void testCreateUser() {
-//        Assert.assertEquals(Integer.valueOf(1),userDao.createUser("admin")) ;
-//        Assert.assertEquals(Integer.valueOf(0),userDao.createUser("")) ;
-//        Assert.assertEquals(Integer.valueOf(1),userDao.createUser(null)) ;
-//    }
+	@Autowired
+    public UserDao userDao;
+
+	@Test
+    public void addUser() throws Exception {
+        Assert.assertEquals(Integer.valueOf(1),userDao.addUser());
+    }
 }
